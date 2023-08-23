@@ -58,20 +58,6 @@ const App = () => {
     }, 1000);
   };
 
-  // Function to toggle showing more tour info
-  const toggleShowMore = (id) => {
-    const updatedTours = tours.map((tour) => {
-      if (tour.id === id) {
-        return {
-          ...tour,
-          showMore: !tour.showMore,
-        };
-      }
-      return tour;
-    });
-    setTours(updatedTours);
-  };
-
   return (
     <main id="main">
       <h2 className="title">Our Tours</h2>
@@ -90,14 +76,7 @@ const App = () => {
             <div key={tour.id} className="single-tour">
               <img src={tour.image} alt={tour.name} />
               <h3>{tour.name}</h3>
-              <p className="tour-info">
-                {tour.showMore ? tour.info : tour.info.substring(0, 200)}
-                {tour.info.length > 200 && (
-                  <button onClick={() => toggleShowMore(tour.id)}>
-                    {tour.showMore ? "Show Less" : "Show More"}
-                  </button>
-                )}
-              </p>
+              <p className="tour-info">{tour.info.substring(0, 200)}...</p>
               <p className="tour-price">${tour.price}</p>
               <button
                 className="delete-btn"
