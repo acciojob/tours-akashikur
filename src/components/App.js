@@ -73,12 +73,17 @@ const App = () => {
       ) : (
         <div>
           {tours.map((tour) => (
-            <div key={tour.id} className="single-tour">
+            <div
+              key={tour.id}
+              className="single-tour"
+              id="#tour-item-para-rec6d6T3q5EBIdCfD"
+            >
               <img src={tour.image} alt={tour.name} />
               <h3>{tour.name}</h3>
               <p className="tour-info">{tour.info.substring(0, 200)}...</p>
               <p className="tour-price">${tour.price}</p>
               <button
+                id="#delete-btn-rec6d6T3q5EBIdCfD"
                 className="delete-btn"
                 onClick={() => handleDeleteTour(tour.id)}
               >
